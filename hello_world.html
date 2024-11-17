@@ -1,0 +1,106 @@
+<html>
+<head>
+<title>Моя первая страничка</title>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+
+<style>
+#illusion_image{
+
+  position: absolute;
+  transform: translate(-50%, -50%);
+
+  -webkit-filter: drop-shadow(5px 5px 5px #4682B4);
+  filter: drop-shadow(5px 5px 5px #4682B4);
+}
+
+body{
+background-color: rgba(144, 238, 144, 0.5);
+}
+
+.container {
+  text-align: center;
+  color: white;
+  text-shadow: 0 0 3px #FFFFFF, 0 0 5px #FFFFFF;
+}
+
+.centered {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#text {
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Lobster", sans-serif;
+  font-size: 30px;
+  color: green;
+  text-shadow: 0 0 3px #FFFFFF, 0 0 5px #00FA9A;
+}
+
+.rotate {
+  animation: rotation 9s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+</style>
+
+<script>
+var btn = document.getElementById('Привет, мир!');
+
+var flag=false;
+
+function playAudio(url) {
+ 
+if (!flag){
+  var audio = new Audio(url);
+
+  audio.loop=true;
+  audio.play();
+  flag=true;
+  }
+}
+</script>
+
+</head>
+<body>
+
+<div class="container">
+
+<div id="illusion_image" class="rotate">
+<img src="images/illusion.png" class="rotate" width=20% height=auto >
+<img src="images/illusion.png" class="rotate" width=30% height=auto >
+<img src="images/illusion.png" class="rotate" width=50% height=auto >
+<img src="images/illusion.png" class="rotate" width=30% height=auto >
+<img src="images/illusion.png" class="rotate" width=20% height=auto >
+</div>
+
+<div id="hello_world">
+<div class="centered"> 
+<h1 onclick="playAudio('images/song.mp3')">Привет мир!</h1>
+</div>
+</div>
+
+</div>
+
+<p id="text" ></p>
+<script>
+
+document.getElementById("illusion_image").addEventListener("click", function() {
+  document.getElementById("text").innerHTML = "Добро пожаловать в мир иллюзий";
+});
+</script>
+
+</body>
+</html>
